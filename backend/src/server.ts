@@ -1,29 +1,24 @@
 import express from "express";
-import type { Request, Response, NextFunction } from "express";
-import cors from "cors";
-import morgan from "morgan";
-import helmet from "helmet";
 import dotenv from "dotenv";
+import priceRoutes from "./routes/priceRoutes";
+import statsRoutes from "./routes/statsRoutes";
+import volumeRoutes from "./routes/volumeRoutes";
+import { errorHandler } from "./middleware/errorHandler";
 
 dotenv.config();
 
 const app = express();
 
-app.use(cors());
-app.use(helmet());
 app.use(express.json());
-app.use(morgan("dev"));
 
-app.get("/api/health", (req: Request, res: Response) => {
-  res.status(200).json({ status: "ok" });
-});
+app.use("/api/price", priceRoutes);
+app.use("/api/stats", statsRoutes);
+app.use("/api/volume", volumeRoutes);
 
-app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-  console.error(err.stack);
-  res.status(500).json({ error: "Server error" });
-});
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
