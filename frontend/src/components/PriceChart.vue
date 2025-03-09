@@ -7,7 +7,8 @@
 </template>
 
 <script lang="ts">
-import type { defineComponent, onMounted, ref, PropType } from "vue";
+import { defineComponent, onMounted, ref } from "vue";
+import type { PropType } from "vue";
 import Chart from "chart.js/auto";
 
 export default defineComponent({
