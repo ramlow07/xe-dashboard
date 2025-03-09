@@ -14,7 +14,8 @@
 </template>
 
 <script lang="ts">
-import type { defineComponent, PropType } from "vue";
+import type { PropType } from "vue";
+import { defineComponent } from "vue";
 
 interface Metric {
   label: string;
@@ -28,6 +29,7 @@ export default defineComponent({
     metrics: {
       type: Array as PropType<Metric[]>,
       required: true,
+      default: () => [],
     },
   },
   setup() {
