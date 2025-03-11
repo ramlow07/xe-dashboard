@@ -10,6 +10,8 @@ import { defineComponent, onMounted, onBeforeUnmount, watch, ref } from "vue";
 import type { PropType } from "vue";
 import Chart from "chart.js/auto";
 import type ChartItem from "chart.js";
+import type TooltipItem from "chart.js";
+import formatCurrency from "chart.js";
 
 export default defineComponent({
   name: "PriceChart",

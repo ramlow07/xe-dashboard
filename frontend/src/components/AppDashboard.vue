@@ -29,6 +29,7 @@
         <h3>Volume: ${{ formatLargeNumber(coinData.volume) }}</h3>
         <p>Market Cap: ${{ formatLargeNumber(coinData.marketCap) }}</p>
         <VolumeChart :volumeData="marketData.volumes" />
+        <MetricsCard />
       </div>
     </div>
   </div>
@@ -39,12 +40,14 @@ import { defineComponent, ref, onMounted } from "vue";
 import axios from "axios";
 import PriceChart from "./PriceChart.vue";
 import VolumeChart from "./VolumeChart.vue";
+import MetricsCard from "./MetricsCard.vue";
 
 export default defineComponent({
   name: "AppDashboard",
   components: {
     PriceChart,
     VolumeChart,
+    MetricsCard,
   },
   setup() {
     const loading = ref(true);
