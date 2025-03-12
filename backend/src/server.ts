@@ -14,7 +14,7 @@ app.use(helmet());
 app.use(express.json());
 app.use(morgan("dev"));
 
-app.get("/api/health", (req: Request, res: Response) => {
+app.get("/", (req: Request, res: Response) => {
   res.status(200).json({ status: "ok" });
 });
 
