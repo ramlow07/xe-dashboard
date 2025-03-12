@@ -4,6 +4,8 @@ import {
   fetchHistoricalPrice,
 } from "../services/dataServices";
 
+import { RequestHandler } from "express";
+
 export const getPrice = async (req: Request, res: Response) => {
   try {
     const price = await fetchCurrentPrice();
@@ -15,7 +17,9 @@ export const getPrice = async (req: Request, res: Response) => {
 
 export const getHistoricalPrice = async (req: Request, res: Response) => {
   try {
-    const { period } = req.query; // Example: "1d", "1w", etc.
+    /* had a problem requesting a query parameter. added a parameter to request this query 
+    as a unknown to after that transform it in a string.*/
+    const period = req.query as unknown as string;
     const priceHistory = await fetchHistoricalPrice(period);
     res.json(priceHistory);
   } catch (error) {
