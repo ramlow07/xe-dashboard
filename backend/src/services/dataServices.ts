@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export const fetchCurrentPrice = async () => {
-  // Replace with actual API call
   try {
     const response = await axios.get(
       "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd"
@@ -13,7 +12,6 @@ export const fetchCurrentPrice = async () => {
 };
 
 export const fetchHistoricalPrice = async (period: string) => {
-  // Replace with actual historical price fetching logic
   try {
     const response = await axios.get(
       `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=${period}`
@@ -24,8 +22,8 @@ export const fetchHistoricalPrice = async (period: string) => {
   }
 };
 
+/* WIP: THIS FUNCTION TAKES A HUGE INFORMATION FROM CRYPTO. GOING TO DECIDE WHERE IT WILL BE AT THE FRONTEND.
 export const fetchStats = async () => {
-  // Replace with actual data fetching logic
   try {
     const response = await axios.get(
       "https://api.coingecko.com/api/v3/coins/bitcoin"
@@ -34,10 +32,9 @@ export const fetchStats = async () => {
   } catch (error) {
     throw new Error("API request failed");
   }
-};
+}; */
 
 export const fetchVolumeData = async () => {
-  // Replace with actual volume data fetching logic
   try {
     const response = await axios.get(
       "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=1"
