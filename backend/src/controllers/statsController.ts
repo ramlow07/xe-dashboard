@@ -1,4 +1,4 @@
-import type { Request, Response } from "express";
+/* import type { Request, Response } from "express";
 import { fetchStats } from "../services/dataServices";
 
 export const getStats = async (req: Request, res: Response) => {
@@ -9,3 +9,4 @@ export const getStats = async (req: Request, res: Response) => {
     res.status(500).json({ error: "Failed to fetch stats" });
   }
 };
+*/
