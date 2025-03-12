@@ -37,11 +37,11 @@ export const getWatchlist = async (req: Request, res: Response) => {
     const watchlist = watchlists[id];
 
     if (!watchlist) {
-      return res.status(404).json({ error: "Watchlist not found" });
+      res.status(404).json({ error: "Watchlist not found" });
     }
 
     if (watchlist.coins.length === 0) {
-      return res.status(200).json({ ...watchlist, prices: [] });
+      res.status(200).json({ ...watchlist, prices: [] });
     }
 
     const coinIds = watchlist.coins.join(",");
@@ -66,7 +66,7 @@ export const updateWatchlist = async (req: Request, res: Response) => {
     const { name, coins } = req.body;
 
     if (!watchlists[id]) {
-      return res.status(404).json({ error: "Watchlist not found" });
+      res.status(404).json({ error: "Watchlist not found" });
     }
 
     if (name) watchlists[id].name = name;
@@ -83,7 +83,7 @@ export const deleteWatchlist = async (req: Request, res: Response) => {
     const { id } = req.params;
 
     if (!watchlists[id]) {
-      return res.status(404).json({ error: "Watchlist not found" });
+      res.status(404).json({ error: "Watchlist not found" });
     }
 
     delete watchlists[id];
